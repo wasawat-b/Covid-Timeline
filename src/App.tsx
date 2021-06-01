@@ -1,24 +1,22 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import NewForm from "./components/NewForm";
+import Timeline from "./components/Timeline";
+
+import classes from "./App.module.css";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={classes.coverBlock}>
+      <div className="container">
+      <h1 className={`m-0 py-4 ${classes.headLine}`}>COVID Timeline Generator</h1>
+        <div className="row">
+          <div className='col-5'>
+          <NewForm />
+          </div>
+          <div className='col-7'>
+          <Timeline />
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

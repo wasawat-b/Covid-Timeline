@@ -1,0 +1,13 @@
+.collectColor {
+    color: #012d5e, #ffc107, #bbc7d4, #34577e, #234973 ;
+}
+
+.coverBlock {
+    background-color: #012d5e;
+    height: 100vh;
+}
+
+/*need to be adjust due to the incorrect sent color, #27a74*/
+.headLine {
+    color: #ffc107;
+}

@@ -1,0 +1,18 @@
+.coverBorder{
+    border: 1px solid #ffc107;
+}
+
+.header {
+    color: #ffc107;
+    display: flex;
+    justify-content: center;
+    margin: 40px 0 20px;
+}
+
+.patientDetail {
+    background-color: #ffc107;
+    text-align: center;
+    display: inline-block;
+    padding: 20px 40px;
+    border-radius: 50px;
+}
