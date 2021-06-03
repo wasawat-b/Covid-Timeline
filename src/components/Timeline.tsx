@@ -1,24 +1,29 @@
+import { useAppSelector } from "../store/hook";
+import TimelineDetail from './detail/TimelineDetail';
+
 import classes from "./Timeline.module.css";
 
 const Timeline: React.FC = () => {
-  const gender = "หญิง";
-  const age = 23;
-  const occupation = "Frontend Develop";
+  const items = useAppSelector((state) => state.items.items);
 
   return (
     <div className={`container ${classes.coverBorder}`}>
-        <div className='d-flex justify-content-center'>
-          <h1 className={classes.header}>Timeline</h1>
-        </div>
-        <div className='d-flex justify-content-center'>
-          <p className={classes.patientDetail}>
-            ผู้ป่วย{gender} อายุ {age} ปี <br />
-            อาชีพ {occupation}
-          </p>
-        </div>
-        <div className='d-flex justify-content-center bg-white'>
-            <h1>Display timeline here</h1>
-        </div>
+      <div className="d-flex justify-content-center">
+        <h1 className={classes.header}>Timeline</h1>
+      </div>
+      <div className="d-flex justify-content-center">
+        <p className={classes.patientDetail}>
+          ผู้ป่วย{items[0].gender} อายุ {items[0].age} ปี <br />
+          อาชีพ {items[0].job}
+        </p>
+      </div>
+      {items[0].detail.map((detail)=>(
+        <TimelineDetail
+          key={items[0].id}
+          date={detail.date}
+          description={detail.description}
+        />
+      ))}
     </div>
   );
 };

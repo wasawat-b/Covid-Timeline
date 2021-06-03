@@ -7,13 +7,15 @@ function App() {
   return (
     <div className={classes.coverBlock}>
       <div className="container">
-      <h1 className={`m-0 py-4 ${classes.headLine}`}>COVID Timeline Generator</h1>
+        <h1 className={`m-0 py-4 ${classes.headLine}`}>
+          COVID Timeline Generator
+        </h1>
         <div className="row">
-          <div className='col-5'>
-          <NewForm />
+          <div className="col-5">
+            <NewForm />
           </div>
-          <div className='col-7'>
-          <Timeline />
+          <div className="col-7">
+            <Timeline />
           </div>
         </div>
       </div>
