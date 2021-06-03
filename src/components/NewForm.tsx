@@ -31,11 +31,11 @@ const NewForm: React.FC = () => {
         },
       },
     };
+    
+    dispatch(listAction.addData(enteredValue));
 
     date.current!.value = "";
     description.current!.value = "";
-
-    dispatch(listAction.addData(enteredValue));
   };
 
   return (

@@ -56,24 +56,23 @@ const listSlice = createSlice({
         state.items = updateDataList;
       } else {
         state.items.push({
-          id: newData.id,
-          gender: newData.gender,
-          age: newData.age,
-          job: newData.job,
-          detail: [
-            {
-              date: newData.detail.date,
-              description: newData.detail.description,
-            },
-          ],
-        });
+            id: newData.id,
+            gender: newData.gender,
+            age: newData.age,
+            job: newData.job,
+            detail: [
+              {
+                date: newData.detail.date,
+                description: newData.detail.description,
+              },
+            ],
+          });
       }
-
-      console.log(state.items);
     },
 
     removeData(state, action: PayloadAction<Item>) {
       state.items.filter((item) => item.id !== action.payload.items.id);
+      state.change = true;
     },
   },
 });

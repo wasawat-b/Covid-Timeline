@@ -20,7 +20,7 @@ export const fetchListdata = () => {
 
     try {
       const data = await fetchData();
-      dispatch(listAction.receiveData(data));
+      dispatch(listAction.receiveData(data.data));
     } catch (error) {
       alert(error);
     }

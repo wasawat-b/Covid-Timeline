@@ -1,3 +1,4 @@
+/*Timeline*/
 .coverBorder{
     border: 1px solid #ffc107;
 }
@@ -9,6 +10,7 @@
     margin: 40px 0 20px;
 }
 
+/*TimelineList*/
 .patientDetail {
     background-color: #ffc107;
     text-align: center;
