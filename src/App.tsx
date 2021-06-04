@@ -14,7 +14,6 @@ function App() {
 
   useEffect(()=>{
     dispatch(fetchListdata());
-    console.log(items);
   }, []);
 
   useEffect(()=> {

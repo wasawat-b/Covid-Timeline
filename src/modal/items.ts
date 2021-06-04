@@ -24,3 +24,9 @@ export type Item = {
     }
   };
 };
+
+export type dayType = {
+  day: string;
+  time: string;
+  description: string;
+};

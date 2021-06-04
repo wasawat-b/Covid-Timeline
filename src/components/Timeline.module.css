@@ -18,3 +18,17 @@
     padding: 20px 40px;
     border-radius: 50px;
 }
+
+.upFont {
+    font-size: x-large;
+}
+.bellowFont {
+    font-size: medium;
+}
+
+.selectClass {
+    background-color: #ffc107;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    font-size: small;
+    -webkit-appearance: none;
+}

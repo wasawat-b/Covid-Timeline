@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import React, { useRef } from "react";
 import { Item } from "../modal/items";
 import { useAppDispatch } from "../store/hook";
 import { listAction } from "../store/list-slice";
@@ -8,11 +8,16 @@ import classes from "./NewForm.module.css";
 const NewForm: React.FC = () => {
   const dispatch = useAppDispatch();
 
+  const [description, setDescription] = React.useState("");
+
   const gender = useRef<HTMLSelectElement>(null);
   const age = useRef<HTMLInputElement>(null);
   const job = useRef<HTMLInputElement>(null);
   const date = useRef<HTMLInputElement>(null);
-  const description = useRef<HTMLInputElement>(null);
+
+  const descriptionHandler = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
+    setDescription(event.target.value);
+  };
 
   const submitHandler = (event: React.FormEvent) => {
     event.preventDefault();
@@ -27,15 +32,15 @@ const NewForm: React.FC = () => {
         job: job.current!.value,
         detail: {
           date: date.current!.value,
-          description: description.current!.value,
+          description: description,
         },
       },
     };
-    
+
     dispatch(listAction.addData(enteredValue));
 
     date.current!.value = "";
-    description.current!.value = "";
+    setDescription("");
   };
 
   return (
@@ -61,9 +66,9 @@ const NewForm: React.FC = () => {
       <div className={`container p-4 ${classes.coverBlock}`}>
         <h2 className={classes.header}>ข้อมูลไทม์ไลน์</h2>
         <label className="form-label">วันเวลา</label>
-        <input className="mb-3 form-control" type="date" ref={date} />
+        <input className="mb-3 form-control" type="datetime-local" ref={date} />
         <label className="form-label">รายละเอียด</label>
-        <input className="mb-3 form-control" type="text" ref={description} />
+        <textarea className="mb-3 form-control" value={description} onChange={descriptionHandler}></textarea>
         <button className={classes.button}>+ เพิ่มข้อมูล</button>
       </div>
     </form>
