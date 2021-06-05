@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/Covid-Timeline/static/css/main.8be89d3d.chunk.css",
+    "main.js": "/Covid-Timeline/static/js/main.37939c22.chunk.js",
+    "main.js.map": "/Covid-Timeline/static/js/main.37939c22.chunk.js.map",
+    "runtime-main.js": "/Covid-Timeline/static/js/runtime-main.78580c6b.js",
+    "runtime-main.js.map": "/Covid-Timeline/static/js/runtime-main.78580c6b.js.map",
+    "static/js/2.5c1450c0.chunk.js": "/Covid-Timeline/static/js/2.5c1450c0.chunk.js",
+    "static/js/2.5c1450c0.chunk.js.map": "/Covid-Timeline/static/js/2.5c1450c0.chunk.js.map",
+    "index.html": "/Covid-Timeline/index.html",
+    "static/css/main.8be89d3d.chunk.css.map": "/Covid-Timeline/static/css/main.8be89d3d.chunk.css.map",
+    "static/js/2.5c1450c0.chunk.js.LICENSE.txt": "/Covid-Timeline/static/js/2.5c1450c0.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.78580c6b.js",
+    "static/js/2.5c1450c0.chunk.js",
+    "static/css/main.8be89d3d.chunk.css",
+    "static/js/main.37939c22.chunk.js"
+  ]
+}
