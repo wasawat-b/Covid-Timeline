@@ -16,7 +16,7 @@ const TimelineList: React.FC = () => {
     setIndexItem(FindIndex);
   };
 
-  const something: dayType[] = [];
+  const sentDate: dayType[] = [];
   items[indexItem].detail.map((detail) => {
     let dayDate: string = "";
     let timeDate: string = "";
@@ -41,7 +41,7 @@ const TimelineList: React.FC = () => {
       timeDate = updateHour + ":" + updateMin;
     }
 
-    something.push({
+    sentDate.push({
       id: detail.id,
       day: dayDate,
       time: timeDate,
@@ -79,7 +79,7 @@ const TimelineList: React.FC = () => {
         )}
       </div>
       {items[0].id ? 
-      <TimelineDetail something={something} />
+      <TimelineDetail receivedDate={sentDate} />
       : null }
     </div>
   );

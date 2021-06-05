@@ -3,10 +3,10 @@ import DeleteButton from './DeleteButton';
 
 import classes from "./TimelineDetail.module.css";
 
-const TimelineDetail: React.FC<{ something: dayType[]; }> = (props) => {
-  const something = props.something;
+const TimelineDetail: React.FC<{ receivedDate: dayType[]; }> = (props) => {
+  const receivedDate = props.receivedDate;
 
-  const getSomething = something.reduce<any>(
+  const convertedDate = receivedDate.reduce<any>(
     (prev, cur) => ({
       ...prev,
       [cur.day]: (prev[cur.day] || []).concat(cur),
@@ -14,11 +14,11 @@ const TimelineDetail: React.FC<{ something: dayType[]; }> = (props) => {
     {}
   );
 
-  const newArray4 = Object.keys(getSomething);
+  const dateArray = Object.keys(convertedDate);
 
   return (
     <div className={`container-lg m-0 p-0`}>
-      {newArray4.sort((a,b) => (parseInt(a) - parseInt(b))).map((item) => (
+      {dateArray.sort((a,b) => (parseInt(a) - parseInt(b))).map((item) => (
         <div key={item} className={`container-lg m-0 p-0`}>
           <div className={`row`}>
             <div className={`container-lg col-3 col-sm-2 m-0 p-0 ${classes.timeline}`}>
@@ -26,7 +26,7 @@ const TimelineDetail: React.FC<{ something: dayType[]; }> = (props) => {
             </div>
 
             <div className={`container-lg col-8 col-sm-9 mb-4 p-2 ${classes.detail}`}>
-              {something.sort((a,b) => (parseInt(a.time) - parseInt(b.time))).map((itemSomething) => (
+              {receivedDate.sort((a,b) => (parseInt(a.time) - parseInt(b.time))).map((itemSomething) => (
                 <div key={itemSomething.id} className={`${classes.timeClassCover}`}>
                   {item === itemSomething.day && (
                     <div className={`${classes.timeClass}`}>
