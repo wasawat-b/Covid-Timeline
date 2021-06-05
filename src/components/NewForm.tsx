@@ -31,6 +31,7 @@ const NewForm: React.FC = () => {
         age: age.current!.value,
         job: job.current!.value,
         detail: {
+          id: newId,
           date: date.current!.value,
           description: description,
         },
@@ -50,14 +51,14 @@ const NewForm: React.FC = () => {
         <div className="mb-3 row">
           <div className="col-6">
             <label className="form-label">เพศ</label>
-            <select className="form-control" ref={gender}>
+            <select className="form-select" ref={gender}>
               <option>ชาย</option>
               <option>หญิง</option>
             </select>
           </div>
           <div className="col-6">
             <label className="form-label">อายุ</label>
-            <input className="form-control" type="number" ref={age} />
+            <input className="form-control" type="number" min="1" ref={age} />
           </div>
         </div>
         <label className="form-label">อาชีพ</label>

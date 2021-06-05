@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-import { Item, Items } from "../modal/items";
+import { dayType, Item, Items } from "../modal/items";
 
 type SliceState = Items;
 
@@ -13,6 +13,7 @@ const initialState: SliceState = {
       job: "",
       detail: [
         {
+          id: "",
           date: "",
           description: "",
         },
@@ -43,6 +44,7 @@ const listSlice = createSlice({
 
       if (findData) {
         findData.detail.push({
+          id:newData.detail.id,
           date: newData.detail.date,
           description: newData.detail.description,
         });
@@ -62,6 +64,7 @@ const listSlice = createSlice({
             job: newData.job,
             detail: [
               {
+                id:newData.detail.id,
                 date: newData.detail.date,
                 description: newData.detail.description,
               },
@@ -70,8 +73,10 @@ const listSlice = createSlice({
       }
     },
 
-    removeData(state, action: PayloadAction<Item>) {
-      state.items.filter((item) => item.id !== action.payload.items.id);
+    removeData(state, action: PayloadAction<string>) {
+      const index = state.items.findIndex(item => item.detail.some(item => item.id === action.payload));
+      const indexDetail = state.items[index].detail.findIndex(item => item.id === action.payload);
+      state.items[index].detail.splice(indexDetail,1);
       state.change = true;
     },
   },

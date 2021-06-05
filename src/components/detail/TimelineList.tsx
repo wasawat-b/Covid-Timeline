@@ -1,11 +1,10 @@
 import React, { ChangeEvent } from "react";
 import { useAppSelector } from "../../store/hook";
 
-import TimelineDetail from "./TimelineDetail";
 import { dayType } from '../../modal/items';
 
 import classes from "../Timeline.module.css";
-import Try from "./try";
+import TimelineDetail from "./TimelineDetail";
 
 const TimelineList: React.FC = () => {
   const items = useAppSelector((state) => state.items.items);
@@ -43,6 +42,7 @@ const TimelineList: React.FC = () => {
     }
 
     something.push({
+      id: detail.id,
       day: dayDate,
       time: timeDate,
       description: detail.description,
@@ -74,7 +74,7 @@ const TimelineList: React.FC = () => {
           </select>
         </div>
       </div>
-      <Try something={something}/>
+      <TimelineDetail something={something}/>
     </div>
   );
 };

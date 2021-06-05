@@ -5,6 +5,7 @@ export type Items = {
     age: string;
     job: string;
     detail: [{
+      id: string;
       date: string;
       description: string;
     }];
@@ -19,6 +20,7 @@ export type Item = {
     age: string;
     job: string;
     detail: {
+      id: string;
       date: string;
       description: string;
     }
@@ -26,6 +28,7 @@ export type Item = {
 };
 
 export type dayType = {
+  id: string;
   day: string;
   time: string;
   description: string;

@@ -1,0 +1,71 @@
+/*detail body*/
+.timeline {
+    position: relative;
+}
+.timeline::after {
+    content: "";
+    position: absolute;
+    width: 1px;
+    background-color: white;
+    top: 0;
+    bottom: 0;
+    left: 105%;
+    margin: 0;
+}
+
+.dateClass {
+    color: #ffc107;
+    font-size: small;
+    text-align: center;
+    position: relative;
+    margin-top: 6px;
+}
+.dateClass::after {
+    content: "";
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    left: calc(105% - 5px);
+    background-color: #ffc107;
+    border: 3px solid white;
+    top: 6px;
+    border-radius: 50%;
+    z-index: 1;
+}
+
+.detail {
+    background-color: #34577e;
+    position: relative;
+    border-radius: 5px;
+}
+.detail::before {
+    content: "";
+    position: absolute;
+    border-width: 6px;
+    border-style: solid;
+    border-color: transparent #34577e transparent transparent;
+    top: 10px;
+    right: 100%;
+}
+
+.timeClass {
+    color: #ffc107;
+    font-size: 0.9em;
+    position: relative;
+}
+
+.span {
+    color: white;
+    font-size: 0.8rem;
+}
+
+.deleteButton {
+    color: white;
+    font-size: small;
+    position: absolute;
+    top: 0%;
+    left: 90%;
+}
+.deleteButton:hover {
+    cursor: pointer;
+}
