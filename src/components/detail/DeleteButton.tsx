@@ -12,7 +12,7 @@ const DeleteButton: React.FC<{ sentId: string }> = (props) => {
   };
 
   return (
-    <div className={`container m-0 p-0`}>
+    <div className={`container-lg m-0 p-0`}>
       <p className={`${classes.deleteButton}`} onClick={removeDataHandler}>
         x
       </p>

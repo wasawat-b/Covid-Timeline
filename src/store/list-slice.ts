@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-import { dayType, Item, Items } from "../modal/items";
+import { Item, Items } from "../modal/items";
 
 type SliceState = Items;
 

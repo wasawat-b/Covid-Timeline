@@ -46,30 +46,30 @@ const NewForm: React.FC = () => {
 
   return (
     <form onSubmit={submitHandler}>
-      <div className={`container mb-4 p-4 ${classes.coverBlock}`}>
+      <div className={`container-lg mb-4 p-4 ${classes.coverBlock}`}>
         <h2 className={classes.header}>ข้อมูลผู้ป่วย</h2>
         <div className="mb-3 row">
-          <div className="col-6">
+          <div className="col-md-6 col-12">
             <label className="form-label">เพศ</label>
-            <select className="form-select" ref={gender}>
+            <select className="form-select" ref={gender} required>
               <option>ชาย</option>
               <option>หญิง</option>
             </select>
           </div>
-          <div className="col-6">
+          <div className="col-md-6 col-12">
             <label className="form-label">อายุ</label>
-            <input className="form-control" type="number" min="1" ref={age} />
+            <input className="form-control" type="number" min="1" ref={age} required />
           </div>
         </div>
         <label className="form-label">อาชีพ</label>
-        <input className="form-control" type="text" ref={job} />
+        <input className="form-control" type="text" ref={job} required />
       </div>
-      <div className={`container p-4 ${classes.coverBlock}`}>
+      <div className={`container-lg mb-4 p-4 ${classes.coverBlock}`}>
         <h2 className={classes.header}>ข้อมูลไทม์ไลน์</h2>
         <label className="form-label">วันเวลา</label>
-        <input className="mb-3 form-control" type="datetime-local" ref={date} />
+        <input className="mb-3 form-control" type="datetime-local" ref={date} required />
         <label className="form-label">รายละเอียด</label>
-        <textarea className="mb-3 form-control" value={description} onChange={descriptionHandler}></textarea>
+        <textarea className="mb-3 form-control" value={description} onChange={descriptionHandler} required></textarea>
         <button className={classes.button}>+ เพิ่มข้อมูล</button>
       </div>
     </form>

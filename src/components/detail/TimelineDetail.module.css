@@ -1,71 +1,103 @@
 /*detail body*/
 .timeline {
-    position: relative;
+  position: relative;
 }
 .timeline::after {
-    content: "";
-    position: absolute;
-    width: 1px;
-    background-color: white;
-    top: 0;
-    bottom: 0;
-    left: 105%;
-    margin: 0;
+  content: "";
+  position: absolute;
+  width: 1px;
+  background-color: white;
+  top: 0;
+  bottom: 0;
+  left: 105%;
+  margin: 0;
 }
 
 .dateClass {
-    color: #ffc107;
-    font-size: small;
-    text-align: center;
-    position: relative;
-    margin-top: 6px;
+  color: #ffc107;
+  font-size: small;
+  text-align: center;
+  position: relative;
+  margin-top: 6px;
 }
 .dateClass::after {
-    content: "";
-    position: absolute;
-    width: 10px;
-    height: 10px;
-    left: calc(105% - 5px);
-    background-color: #ffc107;
-    border: 3px solid white;
-    top: 6px;
-    border-radius: 50%;
-    z-index: 1;
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  left: calc(105% - 4.5px);
+  background-color: #ffc107;
+  border: 3px solid white;
+  top: 6px;
+  border-radius: 50%;
+  z-index: 1;
 }
 
 .detail {
-    background-color: #34577e;
-    position: relative;
-    border-radius: 5px;
+  background-color: #34577e;
+  position: relative;
+  border-radius: 5px;
 }
 .detail::before {
-    content: "";
-    position: absolute;
-    border-width: 6px;
-    border-style: solid;
-    border-color: transparent #34577e transparent transparent;
-    top: 10px;
-    right: 100%;
+  content: "";
+  position: absolute;
+  border-width: 6px;
+  border-style: solid;
+  border-color: transparent #34577e transparent transparent;
+  top: 11px;
+  right: 100%;
+}
+
+.timeClassCover {
+  position: relative;
 }
 
 .timeClass {
-    color: #ffc107;
-    font-size: 0.9em;
-    position: relative;
+  color: #ffc107;
+  font-size: 0.9em;
+  width: 90%;
 }
 
 .span {
-    color: white;
-    font-size: 0.8rem;
+  color: #bbc7d4;
+  font-size: 0.8rem;
 }
 
 .deleteButton {
-    color: white;
-    font-size: small;
-    position: absolute;
-    top: 0%;
-    left: 90%;
+  color: white;
+  font-size: small;
+  position: absolute;
+  top: 0%;
+  left: 95%;
 }
 .deleteButton:hover {
-    cursor: pointer;
+  cursor: pointer;
+  color: rgba(255, 255, 255, 0.3);
+}
+
+@media (max-width: 768px) {
+  .timeline::after {
+    left: 105%;
+  }
+  .dateClass::after {
+    width: 8px;
+    height: 8px;
+    left: calc(105% - 3.5px);
+    top: 4px;
+  }
+  .detail::before {
+    top: 7px;
+  }
+
+  .dateClass {
+    font-size: 12px;
+    margin-top: 6px;
+  }
+  .timeClass {
+    font-size: 12px;
+    width: 90%;
+  }
+  .span {
+    font-size: 11px;
+  }
 }
