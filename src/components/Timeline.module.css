@@ -31,6 +31,7 @@
     background-color: #ffc107;
     border: 1px solid rgba(0, 0, 0, 0.3);
     font-size: small;
+    text-align: center;
     -webkit-appearance: none;
 }
 
@@ -54,3 +55,21 @@
         font-size: small;
     }
 }
+
+
+@media (max-width: 500px) {
+    .patientDetail {
+        padding: 15px 25px;
+        border-radius: 30px;
+    }
+    
+    .upFont {
+        font-size: 16px;
+    }
+    .bellowFont {
+        font-size: 14px;
+    }
+    .selectClass {
+        width: 200px;
+    }
+  }

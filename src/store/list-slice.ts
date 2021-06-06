@@ -21,6 +21,8 @@ const initialState: SliceState = {
     },
   ],
   change: false,
+  deleteTrigger: false,
+  showSuccess: false,
 };
 
 const listSlice = createSlice({
@@ -44,7 +46,7 @@ const listSlice = createSlice({
 
       if (findData) {
         findData.detail.push({
-          id:newData.detail.id,
+          id: newData.detail.id,
           date: newData.detail.date,
           description: newData.detail.description,
         });
@@ -58,26 +60,47 @@ const listSlice = createSlice({
         state.items = updateDataList;
       } else {
         state.items.push({
-            id: newData.id,
-            gender: newData.gender,
-            age: newData.age,
-            job: newData.job,
-            detail: [
-              {
-                id:newData.detail.id,
-                date: newData.detail.date,
-                description: newData.detail.description,
-              },
-            ],
-          });
+          id: newData.id,
+          gender: newData.gender,
+          age: newData.age,
+          job: newData.job,
+          detail: [
+            {
+              id: newData.detail.id,
+              date: newData.detail.date,
+              description: newData.detail.description,
+            },
+          ],
+        });
       }
     },
 
+    changeDeleteTriggerDefault(state, action: PayloadAction<string>) {
+      state.deleteTrigger = action.payload === "true" ? true : false;
+    },
+
     removeData(state, action: PayloadAction<string>) {
-      const index = state.items.findIndex(item => item.detail.some(item => item.id === action.payload));
-      const indexDetail = state.items[index].detail.findIndex(item => item.id === action.payload);
-      state.items[index].detail.splice(indexDetail,1);
+      const index = state.items.findIndex((item) =>
+        item.detail.some((item) => item.id === action.payload)
+      );
+      const indexDetail = state.items[index].detail.findIndex(
+        (item) => item.id === action.payload
+      );
+
+      if (state.items[index].detail.length === 1) {
+        const updateList = state.items.reduce<any>((prev, cur) => cur.id !== state.items[index].id ? [...prev, cur] : [...prev], []);
+        state.items = updateList;
+        state.deleteTrigger = true;
+      } else {
+        state.items[index].detail.splice(indexDetail, 1);
+        state.deleteTrigger = false;
+      }
+
       state.change = true;
+    },
+
+    showSuccess(state, action: PayloadAction<string>) {
+      state.showSuccess = action.payload === "true" ? true : false;
     },
   },
 });

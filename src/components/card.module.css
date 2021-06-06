@@ -1,0 +1,30 @@
+.container {
+    position: relative;
+    padding: 1rem;
+}
+
+.success {
+    font-size: x-large;
+    text-align: center;
+    margin: 0;
+}
+
+.deleteButton {
+    color: rgba(0, 0, 0, 0.3);
+    font-size: large;
+    position: absolute;
+    top: 0%;
+    left: 90%;
+    margin: 0;
+  }
+
+.deleteButton:hover {
+    cursor: pointer;
+    color: rgba(0, 0, 0);
+}
+
+@media (max-width: 650px) {
+    .success {
+        font-size: large;
+    }
+}

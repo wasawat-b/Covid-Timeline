@@ -2,6 +2,7 @@ import { useEffect } from "react";
 
 import NewForm from "./components/NewForm";
 import Timeline from "./components/Timeline";
+import Card from "./components/card";
 
 import { useAppDispatch, useAppSelector } from "./store/hook";
 import { fetchListdata, sendListData } from "./store/list-action";
@@ -37,6 +38,11 @@ function App() {
           </div>
         </div>
       </div>
+      {items.showSuccess &&
+        <div>
+        <Card />
+      </div>
+      }
     </div>
   );
 }

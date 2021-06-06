@@ -39,6 +39,7 @@ const NewForm: React.FC = () => {
     };
 
     dispatch(listAction.addData(enteredValue));
+    dispatch(listAction.showSuccess("true"));
 
     date.current!.value = "";
     setDescription("");

@@ -1,23 +1,38 @@
 import React, { ChangeEvent } from "react";
-import { useAppSelector } from "../../store/hook";
+import { useAppDispatch, useAppSelector } from "../../store/hook";
 
 import { dayType } from "../../modal/items";
+import { listAction } from '../../store/list-slice';
 
-import classes from "../Timeline.module.css";
 import TimelineDetail from "./TimelineDetail";
 
+import classes from "../Timeline.module.css";
+
 const TimelineList: React.FC = () => {
+  const dispatch = useAppDispatch();
   const items = useAppSelector((state) => state.items.items);
+  const deleteList = useAppSelector(state => state.items.deleteTrigger);
 
   const [indexItem, setIndexItem] = React.useState(0);
 
+  let foundIndex: number = 0;
+
   const selectValueHandler = (event: ChangeEvent<HTMLSelectElement>) => {
-    const FindIndex = items.findIndex((item) => item.id === event.target.value);
-    setIndexItem(FindIndex);
+    foundIndex = items.findIndex((item) => item.id === event.target.value);
+
+    dispatch(listAction.changeDeleteTriggerDefault("false"));
+
+    setIndexItem(foundIndex);
   };
 
   const sentDate: dayType[] = [];
-  items[indexItem].detail.map((detail) => {
+
+  let indexShow: number = 0;
+  if(deleteList === false) {
+    indexShow = indexItem;
+  }
+
+  items[indexShow].detail.map((detail) => {
     let dayDate: string = "";
     let timeDate: string = "";
     if (detail.date) {
@@ -56,10 +71,10 @@ const TimelineList: React.FC = () => {
           <div className={`btn ${classes.patientDetail}`}>
             <div data-bs-toggle="collapse" data-bs-target="#collapse-content">
               <p className={`m-0 ${classes.upFont}`}>
-                ผู้ป่วย{items[indexItem].gender} อายุ {items[indexItem].age} ปี
+                ผู้ป่วย{items[indexShow].gender} อายุ {items[indexShow].age} ปี
               </p>
               <p className={`m-0 ${classes.bellowFont}`}>
-                อาชีพ {items[indexItem].job}
+                อาชีพ {items[indexShow].job}
               </p>
             </div>
             <select
@@ -78,9 +93,7 @@ const TimelineList: React.FC = () => {
           <p className={classes.loading}>Loading</p>
         )}
       </div>
-      {items[0].id ? 
-      <TimelineDetail receivedDate={sentDate} />
-      : null }
+      {items[0].id ? <TimelineDetail receivedDate={sentDate} /> : null}
     </div>
   );
 };

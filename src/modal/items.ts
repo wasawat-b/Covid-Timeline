@@ -11,6 +11,8 @@ export type Items = {
     }];
   }];
   change: boolean;
+  deleteTrigger: boolean;
+  showSuccess: boolean;
 };
 
 export type Item = {

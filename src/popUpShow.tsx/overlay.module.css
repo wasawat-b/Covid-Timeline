@@ -1,0 +1,46 @@
+.backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 20;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.overlay {
+    position: fixed;
+    top: 20vh;
+    left: 30%;
+    width: 40%;
+    background-color: khaki;
+    padding: 0;
+    border-radius: 10px;
+    box-shadow: 0 3px 7px rgba(0, 0, 0, 0.2);
+    z-index: 30;
+    animation: slide-down 750ms ease-out forwards;
+}
+
+@media (max-width: 768px) {
+    .overlay {
+      top: 10vh;
+    }
+}
+
+@media (max-width: 650px) {
+  .overlay {
+    left: 20%;
+    width: 60%;
+  }
+}
+
+@keyframes slide-down {
+    from {
+      opacity: 0;
+      transform: translateY(-3rem);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+}
